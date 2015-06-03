@@ -29,8 +29,8 @@ AppAsset::register($this);
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a aria-expanded="false" role="button" href="/" style="color: #676a6c;"> Объекты мониторинга</a>
+                    <li>
+                        <a href="/"> Объекты мониторинга</a>
                     </li>
                     <?php if(Yii::$app->user->identity->role != 10) : ?>
                     <li class="dropdown">
@@ -48,7 +48,7 @@ AppAsset::register($this);
                     <li><a href="/audit/index">Аудит работы с системой</a></li>
                     <?php endif; ?>    
                 </ul>
-                <ul class="nav navbar-top-links navbar-right">
+                <ul class="nav navbar-nav navbar-right">
                     <li><a href="/user/settings/account">Вы вошли как: <?= Yii::$app->user->identity->username; ?> (настройки)</a></li>
                     <li>
                         <?= Html::a('<i class="fa fa-sign-out"></i> Выйти', ['/user/security/logout'], ['data-method' => 'post']); ?>

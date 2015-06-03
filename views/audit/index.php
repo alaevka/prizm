@@ -59,14 +59,16 @@ echo yii\grid\GridView::widget([
                 return $model->getParent()->getAttributeLabel($model->field);
             }
         ],
-        [
-            'label' => 'Старое значение',
-            'attribute' => 'old_value'
-        ],
-        [
-            'label' => 'Новое значение',
-            'attribute' => 'new_value'
-        ],
+        // [
+        //     'label' => 'Старое значение',
+        //     'attribute' => 'old_value',
+        //     'contentOptions' => ['style' => 'width: 100px;']
+        // ],
+        // [
+        //     'label' => 'Новое значение',
+        //     'attribute' => 'new_value',
+        //     'contentOptions' => ['style' => 'width: 100px;']
+        // ],
         [
             'label' => 'Дата',
             'value' => function($model, $index, $widget){
