@@ -15,6 +15,12 @@ use Yii;
  */
 class Objects extends \yii\db\ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            'sammaye\audittrail\LoggableBehavior'
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -29,10 +35,10 @@ class Objects extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'address', 'organization_id'], 'required'],
+            [['title', 'address', 'organization_id', 'device_id'], 'required'],
             [['title', 'address'], 'string'],
-            [['status', 'organization_id'], 'integer'],
-            ['status', 'safe']
+            [['status', 'organization_id', 'message_error_delay', 'long_absence_communication', 'time_long_absence_communication'], 'integer'],
+            [['status', 'phone', 'message_error_delay', 'long_absence_communication', 'time_long_absence_communication', 'password'], 'safe']
         ];
     }
 
@@ -44,9 +50,15 @@ class Objects extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Название объекта',
-            'address' => 'Адрес объекта',
+            'address' => 'Адрес объекта/описание',
             'status' => 'Текущий статус',
             'organization_id' => 'Принадлежность к организации',
+            'device_id' => 'Идентификатор объекта',
+            'phone' => 'Телефон',
+            'message_error_delay' => 'Задержка сообщения об ошибке освещения, часов',
+            'long_absence_communication' => 'Долгое отсутствие связи, часов',
+            'time_long_absence_communication' => 'Время отсутствия связи, часов',
+            'password' => 'Пароль (не используется)'
         ];
     }
 }

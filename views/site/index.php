@@ -30,14 +30,25 @@ $this->params['breadcrumbs'][] = $this->title;
     'columns' => [
         'title',
         'address',
+        'device_id',
+        'phone',
          [
             'attribute' => 'organization_id',
             'value' => function ($model) {
                     return Organizations::findOne($model->organization_id)->title;
                 },
             'format' => 'html',
-            'filter' => ArrayHelper::map(Organizations::find()->all(),'id','title')
+            'filter' => ArrayHelper::map(Organizations::find()->all(),'id','title'),
+            'visible' => Yii::$app->user->identity->role == 30 ? true : false
         ],
+        [
+            'header' => 'Питание',
+            'value' => function ($model) {
+                return '<i style="font-size: 15px; color: #18a689;" class="fa fa-power-off"></i>';
+            },
+            'format' => 'raw',
+            'contentOptions' => ['style' => 'text-align: center;']
+        ],        
         [
             'class' => 'yii\grid\ActionColumn',
             'template' => '{update} {delete}',

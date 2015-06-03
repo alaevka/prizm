@@ -25,6 +25,7 @@ class Organizations extends ActiveRecord
                     ActiveRecord::EVENT_BEFORE_UPDATE => 'updated_at',
                 ],
             ],
+            'sammaye\audittrail\LoggableBehavior'
         ];
     }
 

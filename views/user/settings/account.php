@@ -61,6 +61,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'new_password')->passwordInput() ?>
 
+                <?= $form->field($model, 'allow_alerts',[
+    'template' => "<div class=\"col-lg-offset-3 col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+])->checkbox() ?>
+
                 <hr/>
 
                 <?= $form->field($model, 'current_password')->passwordInput() ?>

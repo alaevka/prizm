@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c2d17fca3789a31d2d2a0c055f678ff8",
+    "hash": "582e2c1eeaa1d3dd3862e5c4e2d43216",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -407,6 +407,50 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "sammaye/yii2-audittrail",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sammaye/yii2-audittrail.git",
+                "reference": "eb78046b4dff6491302e652ae3effb19426ffcaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sammaye/yii2-audittrail/zipball/eb78046b4dff6491302e652ae3effb19426ffcaf",
+                "reference": "eb78046b4dff6491302e652ae3effb19426ffcaf",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": ">=2.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "sammaye\\audittrail\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sammaye",
+                    "homepage": "http://sammaye.wordpress.com/"
+                }
+            ],
+            "description": "A port of audit trail",
+            "keywords": [
+                "Audit",
+                "audit trail",
+                "audittrail",
+                "extension",
+                "trail",
+                "yii2"
+            ],
+            "time": "2015-05-24 12:53:31"
         },
         {
             "name": "swiftmailer/swiftmailer",

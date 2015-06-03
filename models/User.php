@@ -1,6 +1,7 @@
 <?php
 namespace app\models;
 use yii\log\Logger;
+use yii\behaviors\TimestampBehavior;
 use dektrium\user\models\User as BaseUser;
 
 class User extends BaseUser
@@ -8,6 +9,14 @@ class User extends BaseUser
     const ROLE_ORG_USER = 10;
     const ROLE_ORG_ADMIN = 20;
     const ROLE_ROOT = 30;
+
+    public function behaviors()
+    {
+        return [
+            'sammaye\audittrail\LoggableBehavior',
+            TimestampBehavior::className(),
+        ];
+    }
 
     public function attributeLabels()
     {
@@ -21,7 +30,8 @@ class User extends BaseUser
             'confirmed_at'      => \Yii::t('user', 'Confirmation time'),
             'role'              => 'Роль пользователя',
             'created_by'        => 'Кем создан',
-            'organization_id'        => 'Организация'
+            'organization_id'        => 'Организация',
+            'allow_alerts'      => 'Разрешить оповещения на email'
         ];
     }
 
@@ -30,9 +40,9 @@ class User extends BaseUser
         return [
             'register' => ['username', 'email', 'password'],
             'connect'  => ['username', 'email'],
-            'create'   => ['username', 'email', 'password', 'role', 'organization_id'],
-            'update'   => ['username', 'email', 'password', 'role', 'organization_id'],
-            'settings' => ['username', 'email', 'password']
+            'create'   => ['username', 'email', 'password', 'role', 'organization_id', 'allow_alerts'],
+            'update'   => ['username', 'email', 'password', 'role', 'organization_id', 'allow_alerts'],
+            'settings' => ['username', 'email', 'password', 'allow_alerts']
         ];
     }
 
@@ -59,7 +69,8 @@ class User extends BaseUser
 
              ['role', 'required'],
              ['created_by', 'required'],
-             ['organization_id', 'required']
+             ['organization_id', 'required'],
+             ['allow_alerts', 'safe']
         ];
     }
 

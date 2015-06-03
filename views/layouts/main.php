@@ -36,12 +36,16 @@ AppAsset::register($this);
                     <li class="dropdown">
                         <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Пользователи и организации <span class="caret"></span></a>
                         <ul role="menu" class="dropdown-menu">
-                            <li><a href="/user/admin/index">Управление пользователями</a>
+                            <li><a href="/user/admin/index">Управление пользователями</a></li>
                             <?php if(Yii::$app->user->identity->role == 30) : ?>
-                            <li><a href="/organizations/index">Управление организациями</a>
+                            <li><a href="/organizations/index">Управление организациями</a></li>
+                            
                             <?php endif; ?>    
                         </ul>
                     </li>
+                    <?php endif; ?>    
+                    <?php if(Yii::$app->user->identity->role == 30) : ?>
+                    <li><a href="/audit/index">Аудит работы с системой</a></li>
                     <?php endif; ?>    
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
