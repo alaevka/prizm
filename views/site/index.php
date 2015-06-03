@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => 'yii\grid\ActionColumn',
             'template' => '{update} {delete}',
-            'options' => ['style' => 'width: 50px;']
+            'contentOptions' => ['style' => 'text-align: center; width: 60px;']
         ],
     ],
 ]); ?>
